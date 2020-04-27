@@ -38,7 +38,7 @@
             this.Ball.BackColor = System.Drawing.Color.Orange;
             this.Ball.Location = new System.Drawing.Point(281, 131);
             this.Ball.Name = "Ball";
-            this.Ball.Size = new System.Drawing.Size(148, 98);
+            this.Ball.Size = new System.Drawing.Size(191, 112);
             this.Ball.TabIndex = 0;
             this.Ball.TabStop = false;
             // 

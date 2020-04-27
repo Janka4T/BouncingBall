@@ -31,6 +31,11 @@ namespace BouncingBall
             verVelocity = ballStep;
             horVelocity = ballStep;
 
+            Ball.BackColor = Color.Transparent;
+            Ball.SizeMode = PictureBoxSizeMode.StretchImage;
+            Ball.Image = Properties.Resources.DvD;
+            
+
             this.KeyDown += new KeyEventHandler(App_KeyDown);
 
             UpdateBallStepLabel();
