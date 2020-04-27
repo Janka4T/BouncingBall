@@ -27,6 +27,7 @@ namespace BouncingBall
 
         private void InitializeApp()
         {
+            this.BackColor = Color.Black;
             verVelocity = ballStep;
             horVelocity = ballStep;
 
@@ -85,25 +86,18 @@ namespace BouncingBall
         {
             if(e.KeyCode == Keys.X)
             {
-                ballStep += 1;
-                if (ballStep != 0)
-                {
-                    verVelocity = ballStep * (verVelocity/Math.Abs(verVelocity));
-                    horVelocity = ballStep * (horVelocity / Math.Abs(horVelocity));
-                }
-                else
-                {
-                    verVelocity = ballStep;
-                    horVelocity = ballStep;
-                }
-                                
+                ballStep += 1;                                
+                verVelocity = ballStep * (verVelocity/Math.Abs(verVelocity));
+                horVelocity = ballStep * (horVelocity / Math.Abs(horVelocity));                                                                                                                  
                 UpdateBallStepLabel();
             }
             else if(e.KeyCode == Keys.Z)
             {
-                if(ballStep > 0)
+                if(ballStep > 1)
                 {
                     ballStep -= 1;
+                    verVelocity = ballStep * (verVelocity / Math.Abs(verVelocity));
+                    horVelocity = ballStep * (horVelocity / Math.Abs(horVelocity));
                     UpdateBallStepLabel();
                 }                
             }                
