@@ -27,6 +27,7 @@ namespace BouncingBall
 
         private void InitializeApp()
         {
+            this.WindowState = FormWindowState.Maximized;
             this.BackColor = Color.Black;
             verVelocity = ballStep;
             horVelocity = ballStep;
