@@ -35,6 +35,8 @@ namespace BouncingBall
             this.BackColor = Color.Black;
             verVelocity = ballStep;
             horVelocity = ballStep;
+            this.Width = 850;
+            this.Height = 400;
 
             //Ball.BackColor = Color.Transparent;
             //Ball.SizeMode = PictureBoxSizeMode.StretchImage;

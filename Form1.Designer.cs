@@ -38,7 +38,7 @@
             // Ball
             // 
             this.Ball.BackColor = System.Drawing.Color.Orange;
-            this.Ball.Location = new System.Drawing.Point(319, 258);
+            this.Ball.Location = new System.Drawing.Point(191, 255);
             this.Ball.Name = "Ball";
             this.Ball.Size = new System.Drawing.Size(41, 40);
             this.Ball.TabIndex = 0;
@@ -69,7 +69,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1023, 450);
             this.Controls.Add(this.Racket);
             this.Controls.Add(this.BallStepLabel);
             this.Controls.Add(this.Ball);
