@@ -10,15 +10,17 @@ using System.Windows.Forms;
 
 namespace BouncingBall
 {
-    public partial class Form1 : Form
+    public partial class Field : Form
     {
         int horVelocity = 0;
         int verVelocity = 0;
         int ballStep = 2;
+        bool mouseDown = false;
 
         Timer mainTimer = null;
+        private Point MouseDownLocation;
 
-        public Form1()
+        public Field()
         {
             InitializeComponent();
             InitializeApp();
@@ -123,6 +125,26 @@ namespace BouncingBall
             if (Ball.Bounds.IntersectsWith(Racket.Bounds))
             {
                 verVelocity = -verVelocity;
+            }
+        }
+
+        
+
+
+        private void Racket_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                MouseDownLocation = e.Location;
+            }
+        }
+
+        private void Racket_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                Racket.Left = e.X + Racket.Left - MouseDownLocation.X;
+                Racket.Top = e.Y + Racket.Top - MouseDownLocation.Y;
             }
         }
     }

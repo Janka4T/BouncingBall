@@ -1,6 +1,6 @@
 ﻿namespace BouncingBall
 {
-    partial class Form1
+    partial class Field
     {
         /// <summary>
         /// Required designer variable.
@@ -59,11 +59,13 @@
             this.Racket.BackColor = System.Drawing.Color.Chartreuse;
             this.Racket.Location = new System.Drawing.Point(253, 339);
             this.Racket.Name = "Racket";
-            this.Racket.Size = new System.Drawing.Size(256, 50);
+            this.Racket.Size = new System.Drawing.Size(256, 36);
             this.Racket.TabIndex = 2;
             this.Racket.TabStop = false;
+            this.Racket.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Racket_MouseDown);
+            this.Racket.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Racket_MouseMove);
             // 
-            // Form1
+            // Field
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -72,7 +74,7 @@
             this.Controls.Add(this.BallStepLabel);
             this.Controls.Add(this.Ball);
             this.DoubleBuffered = true;
-            this.Name = "Form1";
+            this.Name = "Field";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.Ball)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Racket)).EndInit();
