@@ -14,7 +14,7 @@ namespace BouncingBall
     {
         int horVelocity = 0;
         int verVelocity = 0;
-        int ballStep = 3;
+        int ballStep = 2;
 
         Timer mainTimer = null;
 
@@ -55,6 +55,7 @@ namespace BouncingBall
         {
             MoveBall();
             BallBorderCollider();
+            RacketCollision();
         }
 
         private void MoveBall()
@@ -88,6 +89,8 @@ namespace BouncingBall
             }
         }
 
+       
+
         private void App_KeyDown(object sender, KeyEventArgs e)
         {
             if(e.KeyCode == Keys.X)
@@ -111,8 +114,16 @@ namespace BouncingBall
 
         private void UpdateBallStepLabel()
         {
+            BallStepLabel.ForeColor = Color.White;
             BallStepLabel.Text = "Ball step: " + ballStep;
         }
 
+        private void RacketCollision()
+        {
+            if (Ball.Bounds.IntersectsWith(Racket.Bounds))
+            {
+                verVelocity = -verVelocity;
+            }
+        }
     }
 }

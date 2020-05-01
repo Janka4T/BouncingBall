@@ -30,7 +30,9 @@
         {
             this.Ball = new System.Windows.Forms.PictureBox();
             this.BallStepLabel = new System.Windows.Forms.Label();
+            this.Racket = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.Ball)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Racket)).BeginInit();
             this.SuspendLayout();
             // 
             // Ball
@@ -52,17 +54,28 @@
             this.BallStepLabel.TabIndex = 1;
             this.BallStepLabel.Text = "label1";
             // 
+            // Racket
+            // 
+            this.Racket.BackColor = System.Drawing.Color.Chartreuse;
+            this.Racket.Location = new System.Drawing.Point(253, 339);
+            this.Racket.Name = "Racket";
+            this.Racket.Size = new System.Drawing.Size(256, 50);
+            this.Racket.TabIndex = 2;
+            this.Racket.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.Racket);
             this.Controls.Add(this.BallStepLabel);
             this.Controls.Add(this.Ball);
             this.DoubleBuffered = true;
             this.Name = "Form1";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.Ball)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Racket)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -72,6 +85,7 @@
 
         private System.Windows.Forms.PictureBox Ball;
         private System.Windows.Forms.Label BallStepLabel;
+        private System.Windows.Forms.PictureBox Racket;
     }
 }
 
