@@ -15,9 +15,11 @@ namespace BouncingBall
         int horVelocity = 0;
         int verVelocity = 0;
         int ballStep = 2;
-        bool mouseDown = false;
+        
 
-        Timer mainTimer = null;
+
+        private PictureBox brick = null;
+        private Timer mainTimer = null;
         private Point MouseDownLocation;
 
         public Field()
@@ -29,20 +31,21 @@ namespace BouncingBall
 
         private void InitializeApp()
         {
-            this.WindowState = FormWindowState.Maximized;
+            //this.WindowState = FormWindowState.Maximized;
             this.BackColor = Color.Black;
             verVelocity = ballStep;
             horVelocity = ballStep;
 
-            Ball.BackColor = Color.Transparent;
-            Ball.SizeMode = PictureBoxSizeMode.StretchImage;
-            Ball.Image = Properties.Resources.DvD;
+            //Ball.BackColor = Color.Transparent;
+            //Ball.SizeMode = PictureBoxSizeMode.StretchImage;
+            //Ball.Image = Properties.Resources.DvD;
             
 
             this.KeyDown += new KeyEventHandler(App_KeyDown);
 
             UpdateBallStepLabel();
             InitializeMainTimer();
+            BuildBricks(5, 10);
         }
 
         private void InitializeMainTimer()
@@ -58,6 +61,7 @@ namespace BouncingBall
             MoveBall();
             BallBorderCollider();
             RacketCollision();
+            BallBrickCollision();
         }
 
         private void MoveBall()
@@ -91,8 +95,7 @@ namespace BouncingBall
             }
         }
 
-       
-
+        
         private void App_KeyDown(object sender, KeyEventArgs e)
         {
             if(e.KeyCode == Keys.X)
@@ -127,10 +130,7 @@ namespace BouncingBall
                 verVelocity = -verVelocity;
             }
         }
-
         
-
-
         private void Racket_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -147,5 +147,44 @@ namespace BouncingBall
                 Racket.Top = e.Y + Racket.Top - MouseDownLocation.Y;
             }
         }
-    }
+
+        private void BuildBricks(int rows, int cols)
+        {
+            int brickWidth = 60;
+            int brickHeight = 20;
+            int brickVerSpace = 5;
+            int brickHorSpase = 10;
+
+            for(int r = 1; r <= rows; r++)
+            {
+                for(int c = 1; c<= cols; c++)
+                {
+                    brick = new PictureBox();
+                    brick.BackColor = Color.RosyBrown;
+                    brick.Width = brickWidth;
+                    brick.Height = brickHeight;
+                    brick.Left = c * (brickWidth + brickHorSpase);
+                    brick.Top = r * (brickHeight + brickVerSpace);
+                    brick.Tag = "brick";
+                    this.Controls.Add(brick);
+                }
+            }
+        }
+
+        private void BallBrickCollision()
+        {
+            foreach(Control cont in this.Controls)
+            {
+                if((string)cont.Tag == "brick")
+                {
+                    if (cont.Bounds.IntersectsWith(Ball.Bounds))
+                    {
+                        cont.Dispose();
+                        verVelocity *= -1; //verVelocity = -verVelocity;
+
+                    }
+                }
+            }
+        }
+    }   
 }
